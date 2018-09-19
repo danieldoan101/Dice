@@ -12,7 +12,7 @@ void mousePressed()
 }
 class Die //models one single dice cube
 {
-	//variable declarations here
+	int myX,myY,mySize,rollNumber;
 	
 	Die(int x, int y) //constructor
 	{
@@ -24,6 +24,8 @@ class Die //models one single dice cube
 	}
 	void show()
 	{
+		fill(255,255,255);
+		rect(myX,myY,mySize,mySize);
 		//your code here
 	}
 }
