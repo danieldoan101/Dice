@@ -6,6 +6,7 @@ void setup()
 void draw()
 {
 	Die bob = new Die(150,150,60);
+	bob.roll();
 	bob.show();
 }
 void mousePressed()
@@ -21,7 +22,7 @@ class Die //models one single dice cube
 		myX = x;
 		myY = y;
 		mySize = size;
-		rollNumber = 4;
+		rollNumber = 1;
 	}
 	void roll()
 	{
@@ -48,9 +49,18 @@ class Die //models one single dice cube
 			rect(myX-mySize/5,myY+mySize/5,mySize/6,mySize/6,10);
 			rect(myX+mySize/5,myY+mySize/5,mySize/6,mySize/6,10);
 		}else if (rollNumber==5) {
-			
+			rect(myX-mySize/5,myY-mySize/5,mySize/6,mySize/6,10);
+			rect(myX+mySize/5,myY-mySize/5,mySize/6,mySize/6,10);
+			rect(myX-mySize/5,myY+mySize/5,mySize/6,mySize/6,10);
+			rect(myX+mySize/5,myY+mySize/5,mySize/6,mySize/6,10);
+			rect(myX,myY,mySize/6,mySize/6,10);
 		}else if (rollNumber==6) {
-			
+			rect(myX-mySize/5,myY-mySize/6,mySize/7,mySize/7,10);
+			rect(myX+mySize/5,myY-mySize/6,mySize/7,mySize/7,10);
+			rect(myX-mySize/5,myY+mySize/6,mySize/7,mySize/7,10);
+			rect(myX+mySize/5,myY+mySize/6,mySize/7,mySize/7,10);
+			rect(myX,myY-mySize/6,mySize/7,mySize/7,10);
+			rect(myX,myY+mySize/6,mySize/7,mySize/7,10);
 		}
 	}
 }
