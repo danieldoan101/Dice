@@ -1,13 +1,21 @@
 void setup()
 {
 	noLoop();
-	size(300, 300);
+	size(600, 700);
 }
 void draw()
 {
-	Die bob = new Die(150,150,60);
-	bob.roll();
-	bob.show();
+	int totalSum = 0;
+	for (int y = 10; y < 600; y += 20) {
+		for (int x = 10; x < 600; x += 20) {
+			Die bob = new Die(x, y, 20);
+			bob.roll();
+			bob.show();
+			totalSum += bob.rollNumber;
+		}
+	}
+	//text("Total Sum Of 900 Dice: " + totalSum, 300, 600);
+	//textFont(, size);
 }
 void mousePressed()
 {
@@ -32,35 +40,35 @@ class Die //models one single dice cube
 	{
 		rectMode(CENTER);
 		fill(255);
-		rect(myX,myY,mySize,mySize,10);
+		rect(myX,myY,mySize,mySize);
 		fill(0);
 		if (rollNumber==1){
-			rect(myX,myY,mySize/6,mySize/6,10);
+			rect(myX,myY,mySize/6,mySize/6);
 		}else if (rollNumber==2) {
-			rect(myX-mySize/5,myY,mySize/6,mySize/6,10);
-			rect(myX+mySize/5,myY,mySize/6,mySize/6,10);
+			rect(myX-mySize/5,myY,mySize/6,mySize/6);
+			rect(myX+mySize/5,myY,mySize/6,mySize/6);
 		}else if (rollNumber==3) {
 			for (int i = -mySize/5;i < 2 * mySize/5;i += mySize/5) {
-				rect(myX+i,myY+i,mySize/6,mySize/6,10);
+				rect(myX+i,myY+i,mySize/6,mySize/6);
 			}
 		}else if (rollNumber==4) {
-			rect(myX-mySize/5,myY-mySize/5,mySize/6,mySize/6,10);
-			rect(myX+mySize/5,myY-mySize/5,mySize/6,mySize/6,10);
-			rect(myX-mySize/5,myY+mySize/5,mySize/6,mySize/6,10);
-			rect(myX+mySize/5,myY+mySize/5,mySize/6,mySize/6,10);
+			rect(myX-mySize/5,myY-mySize/5,mySize/6,mySize/6);
+			rect(myX+mySize/5,myY-mySize/5,mySize/6,mySize/6);
+			rect(myX-mySize/5,myY+mySize/5,mySize/6,mySize/6);
+			rect(myX+mySize/5,myY+mySize/5,mySize/6,mySize/6);
 		}else if (rollNumber==5) {
-			rect(myX-mySize/5,myY-mySize/5,mySize/6,mySize/6,10);
-			rect(myX+mySize/5,myY-mySize/5,mySize/6,mySize/6,10);
-			rect(myX-mySize/5,myY+mySize/5,mySize/6,mySize/6,10);
-			rect(myX+mySize/5,myY+mySize/5,mySize/6,mySize/6,10);
-			rect(myX,myY,mySize/6,mySize/6,10);
+			rect(myX-mySize/5,myY-mySize/5,mySize/6,mySize/6);
+			rect(myX+mySize/5,myY-mySize/5,mySize/6,mySize/6);
+			rect(myX-mySize/5,myY+mySize/5,mySize/6,mySize/6);
+			rect(myX+mySize/5,myY+mySize/5,mySize/6,mySize/6);
+			rect(myX,myY,mySize/6,mySize/6);
 		}else if (rollNumber==6) {
-			rect(myX-mySize/5,myY-mySize/6,mySize/7,mySize/7,10);
-			rect(myX+mySize/5,myY-mySize/6,mySize/7,mySize/7,10);
-			rect(myX-mySize/5,myY+mySize/6,mySize/7,mySize/7,10);
-			rect(myX+mySize/5,myY+mySize/6,mySize/7,mySize/7,10);
-			rect(myX,myY-mySize/6,mySize/7,mySize/7,10);
-			rect(myX,myY+mySize/6,mySize/7,mySize/7,10);
+			rect(myX-mySize/5,myY-mySize/6,mySize/7,mySize/7);
+			rect(myX+mySize/5,myY-mySize/6,mySize/7,mySize/7);
+			rect(myX-mySize/5,myY+mySize/6,mySize/7,mySize/7);
+			rect(myX+mySize/5,myY+mySize/6,mySize/7,mySize/7);
+			rect(myX,myY-mySize/6,mySize/7,mySize/7);
+			rect(myX,myY+mySize/6,mySize/7,mySize/7);
 		}
 	}
 }
