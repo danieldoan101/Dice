@@ -2,9 +2,13 @@ void setup()
 {
 	noLoop();
 	size(600, 700);
+	rectMode(CENTER);
+	textSize(25);
+	textAlign(CENTER);
 }
 void draw()
 {
+	background(197);
 	int totalSum = 0;
 	for (int y = 10; y < 600; y += 20) {
 		for (int x = 10; x < 600; x += 20) {
@@ -14,8 +18,7 @@ void draw()
 			totalSum += bob.rollNumber;
 		}
 	}
-	//text("Total Sum Of 900 Dice: " + totalSum, 300, 600);
-	//textFont(, size);
+	text("Total Sum Of 900 Dice: " + totalSum, 300, 650);
 }
 void mousePressed()
 {
@@ -38,8 +41,8 @@ class Die //models one single dice cube
 	}
 	void show()
 	{
-		rectMode(CENTER);
-		fill(255);
+		//fill(255);
+		fill((int)(Math.random()*256+1), (int)(Math.random()*256+1), (int)(Math.random()*256+1));
 		rect(myX,myY,mySize,mySize);
 		fill(0);
 		if (rollNumber==1){
